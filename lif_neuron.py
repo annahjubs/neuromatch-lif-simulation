@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 def simulate_lif_neuron():
     # 1. Parâmetros do neurônio (Baseados no modelo biofísico)
     tau_m = 20e-3      # Constante de tempo da membrana (20ms)
-    E_L = -60e-3       # Potencial de repouso/leak (-60mV)
+    EL = -60e-3       # Potencial de repouso/leak (-60mV)
     R = 100e6          # Resistência da membrana (100 MOhm)
-    V_th = -50e-3      # Limiar de disparo (-50mV)
-    V_reset = -70e-3   # Potencial de reset após o disparo (-70mV)
+    Vth = -50e-3      # Limiar de disparo (-50mV)
+    Vreset = -70e-3   # Potencial de reset após o disparo (-70mV)
 
     # 2. Parâmetros da simulação
     t_max = 0.2        # Simular 200ms
@@ -27,7 +27,7 @@ def simulate_lif_neuron():
     spike_times =
 
     # 5. Integração numérica (Método de Euler)
-    # Equação: $dv/dt = (E_L - v + R \cdot I) / \tau_m$
+    # Equação: dv/dt = (E_L - v + R \cdot I) / \tau_m
     for t in range(1, steps):
         dv = (E_L - v[t-1] + R * I[t]) * (dt / tau_m)
         v[t] = v[t-1] + dv
